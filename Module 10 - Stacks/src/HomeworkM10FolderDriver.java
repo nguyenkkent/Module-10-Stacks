@@ -27,16 +27,26 @@ public class HomeworkM10FolderDriver {
 
 	}
 	
+	
 	public static void printFolderContentsWithStack(Folder topFolder) {
 		Stack<Folder> folderStack = new Stack<Folder>();
 		folderStack.push(topFolder);
 
 		while(!folderStack.isEmpty()) {
-			// YOUR CODE HERE!
-			return; // placeholder: delete this and replace with your own code; it's here only to prevent infinite loops 
+			Folder current = folderStack.pop();
+			
+			System.out.println("Files: " + current.getFileList());
+			List folderList = current.getFolderList();
+			if (!folderList.isEmpty()) {
+				
+			}
+
+			
+			return;
 		}	
 	}
 
+	
 	public static void main(String[] args) {
 		Folder folder0 = new Folder("Folder0");
 		
@@ -47,7 +57,7 @@ public class HomeworkM10FolderDriver {
 		// uses random numbers to generate the hierarchy, so you want
 		// to run those tests more than once to make sure you catch
 		// any errors.
-		int hierarchyDepth = 5;
+		int hierarchyDepth = 2;
     	buildFolders(folder0, hierarchyDepth);
     	List<Folder> folder0SubFolders = folder0.getFolderList();
     	System.out.println("Testing folder hierarchy of depth " + hierarchyDepth);

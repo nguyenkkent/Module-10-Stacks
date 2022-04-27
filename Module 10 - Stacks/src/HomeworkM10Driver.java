@@ -29,7 +29,7 @@ public class HomeworkM10Driver {
 	
 	  
     	// UN-COMMENT FOR EXTRA CREDIT	    
-      /*
+      
 		System.out.println("\n\n--------------------------------TESTING PEEKNEXT IN LINKEDSTACK--------------------------------");
 		// parameter 1: the contents that will be pushed onto the stack- contents are pushed from start to finish.
 		//              so the element at array index 0 will be on the bottom of the stack.
@@ -52,7 +52,7 @@ public class HomeworkM10Driver {
 		testPeekNextArray(new Integer[]{4, 5, 6},       5,        "odd length stack");
 		testPeekNextArray(new Integer[]{3, 8, 7, 2},    7,        "odd length stack");
 		testPeekNextArray(new String[]{"a", "b", "c", "d"},  "c", "test with Strings");   
-		*/
+		
    
 		System.out.println("\n\n-----------------------------TESTING COMPLETE-----------------------------");
 		if(allTestsPassed) {
