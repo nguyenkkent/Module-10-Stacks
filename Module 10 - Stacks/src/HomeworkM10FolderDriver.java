@@ -31,18 +31,37 @@ public class HomeworkM10FolderDriver {
 	public static void printFolderContentsWithStack(Folder topFolder) {
 		Stack<Folder> folderStack = new Stack<Folder>();
 		folderStack.push(topFolder);
-
+		Stack<Integer> indentation = new Stack<Integer>();
+		indentation.push(0);
+		
 		while(!folderStack.isEmpty()) {
 			Folder current = folderStack.pop();
+			int tab = Integer.valueOf(indentation.pop());
 			
-			System.out.println("Files: " + current.getFileList());
-			List folderList = current.getFolderList();
-			if (!folderList.isEmpty()) {
-				
+			
+			for(int i=0; i<tab; i++) {	//display spacing for current folder;
+				System.out.print("   ");
+			}			
+			System.out.println(current); //display name of current folder
+			
+			if (!current.getFileList().isEmpty()) { //display files if exists, else no
+				for(int i=0; i<tab+1; i++) {	//display spacing for current files;
+					System.out.print("   ");
+				}
+				System.out.println("Files: " + current.getFileList());
+			}			
+			
+			
+			List<Folder> folderList = current.getFolderList();
+			if(!folderList.isEmpty()) { //sub-folders exists so need 1 more indentation
+				tab++; 
 			}
-
-			
-			return;
+			//push all sub-folders in current folder onto stack backwards			
+			for (int i=folderList.size()-1; 0<=i; i--) {
+				folderStack.push(folderList.get(i));
+				indentation.push(tab);
+			}
+			folderList.clear();			
 		}	
 	}
 
@@ -57,7 +76,7 @@ public class HomeworkM10FolderDriver {
 		// uses random numbers to generate the hierarchy, so you want
 		// to run those tests more than once to make sure you catch
 		// any errors.
-		int hierarchyDepth = 2;
+		int hierarchyDepth = 5;
     	buildFolders(folder0, hierarchyDepth);
     	List<Folder> folder0SubFolders = folder0.getFolderList();
     	System.out.println("Testing folder hierarchy of depth " + hierarchyDepth);
