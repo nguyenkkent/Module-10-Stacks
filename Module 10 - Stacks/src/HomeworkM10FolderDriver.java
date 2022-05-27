@@ -59,7 +59,7 @@ public class HomeworkM10FolderDriver {
 			//push all sub-folders in current folder onto stack backwards			
 			for (int i=folderList.size()-1; 0<=i; i--) {
 				folderStack.push(folderList.get(i));
-				indentation.push(tab);
+				indentation.push(tab); //matches the number of tabs for reach sub-folder on 2nd stack
 			}
 			folderList.clear();			
 		}	
